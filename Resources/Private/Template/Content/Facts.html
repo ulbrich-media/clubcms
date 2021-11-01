@@ -1,0 +1,37 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="Main">
+
+    <f:if condition="{data.bodytext}">
+        <f:format.html>{data.bodytext}</f:format.html>
+    </f:if>
+
+    <f:if condition="{attachedContent}">
+        <div class="grid sm:grid-cols-2 gap-4">
+            <f:for each="{attachedContent}" as="item">
+                <div class="p-4 rounded border border-gray text-center">
+
+                    <f:if condition="{item.data.icon}">
+                        <div class="mb-2 text-accent text-xl">
+                            <i class="{item.data.icon}"></i>
+                        </div>
+                    </f:if>
+
+                    <f:if condition="{item.data.title}">
+                        <h3 class="mb-2">{item.data.title}</h3>
+                    </f:if>
+
+                    <f:if condition="{item.data.body}">
+                        <p class="text-xs mb-0">{item.data.body}</p>
+                    </f:if>
+
+                </div>
+            </f:for>
+        </div>
+    </f:if>
+
+</f:section>
+
+</html>

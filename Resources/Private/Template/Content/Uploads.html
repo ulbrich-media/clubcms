@@ -1,0 +1,41 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="Main">
+
+    <f:if condition="{data.bodytext}">
+        <f:format.html>{data.bodytext}</f:format.html>
+    </f:if>
+
+
+    <f:if condition="{files}">
+        <div class="grid sm:grid-cols-2 gap-4">
+            <f:for each="{files}" as="item">
+                <f:debug>{_all}</f:debug>
+
+                    <div class="p-4 rounded border-2 border-accent-10 text-center">
+
+                        <div class="mb-3 inline-block">
+                            <f:link.typolink class="link-button-icon text-center" parameter="fileadmin/{item.identifier}" target="_blank">
+                                <i class="fas fa-arrow-down"></i>
+                            </f:link.typolink>
+                        </div>
+
+                        <f:if condition="{item.title}">
+                            <f:then>
+                                <p class="text-xs text-accent font-bold mb-0">{item.title}.{item.extension}</p>
+                                
+                            </f:then>
+                            <f:else>
+                                <p class="text-xs text-accent font-bold mb-0">{item.name}</p>
+                            </f:else>
+                        </f:if>
+                    </div>
+            </f:for>
+        </div>
+    </f:if>
+
+</f:section>
+
+</html>

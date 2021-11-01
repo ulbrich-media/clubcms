@@ -1,0 +1,34 @@
+.page.page-side-menu {
+    @apply max-w-full mx-auto;
+    @apply xl:flex xl:flex-wrap xl:flex-nowrap xl:items-start;
+}
+
+.menu-container {
+    @apply fixed z-20 inset-0 bg-white transform transition-transform -translate-x-screen overflow-y-auto;
+    @apply sm:absolute sm:w-80 sm:min-h-screen sm:-translate-x-80;
+    @apply flex-none xl:translate-x-0 xl:sticky xl:top-0 xl:inset-x-0 xl:mr-8 2xl:mr-32;
+}
+.menu {
+    /*@apply ;*/
+    /*@apply ;*/
+    @apply xl:py-4;
+}
+
+.main-container {
+    @apply relative flex-1 transform transition-transform overflow-x-hidden;
+    @apply opacity-100 transition-all;
+    /*@apply ;*/
+}
+.main {
+    @apply px-4 xl:pl-0 xl:pr-0;
+}
+
+body.active-menu {
+    @apply fixed sm:relative;
+}
+.active-menu .menu-container {
+    @apply translate-x-0;
+}
+.active-menu .main-container {
+    @apply translate-x-screen sm:translate-x-80 sm:opacity-40 xl:translate-x-0 xl:opacity-100;
+}

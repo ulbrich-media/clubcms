@@ -1,0 +1,119 @@
+# Load default processing options
+imports:
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+# Add configuration for the editor
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+  filter:
+    allowedContent:
+      a:
+        classes: "*"
+
+  config:
+    contentsCss: ["EXT:clubcms/Resources/Public/style.css?v1"]
+
+    stylesSet:
+      - { name: "Link", element: "a", attributes: { class: 'link-text' } }
+      - { name: "Button", element: "a", attributes: { class: 'link-button' } }
+
+    format_tags: "p;h1;h2;h3;h4"
+
+    toolbarGroups:
+      - { name: styles, groups: [ styles, format, insert] }
+      - { name: basicstyles, groups: [ basicstyles ] }
+      - { name: paragraph, groups: [ list, indent, blocks, align ] }
+      - { name: links, groups: [ links ] }
+      - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
+      - { name: editing, groups: [ spellchecker ] }
+      - { name: insert, groups: [ insert ] }
+      - { name: tools, groups: [ table, specialchar ] }
+      - { name: document, groups: [ mode ] }
+
+    justifyClasses:
+      - text-left
+      - text-center
+      - text-right
+      - text-justify
+
+    extraPlugins:
+      - justify
+
+    removePlugins:
+      - image
+
+    removeButtons:
+      - Anchor
+      - Underline
+      - Strike
+
+classesAnchor:
+  page:
+    class: 'link-text'
+    type: 'page'
+    target: '_top'
+  file:
+    class: 'link-text'
+    type: 'file'
+    target: '_blank'
+  folder:
+    class: 'link-text'
+    type: 'file'
+    target: '_blank'
+  url:
+    class: 'link-text'
+    type: 'url'
+    target: '_blank'
+  mail:
+    class: 'link-text'
+    type: 'mail'
+  telephone:
+    class: 'link-text'
+    type: 'telephone'
+
+# available buttons for link handler
+classes:
+  link-text:
+    name: 'Link'
+  link-button:
+    name: "Button"
+
+# button configuration for the different link types in link handler
+buttons:
+  link:
+    relAttribute:
+      enabled: true
+    properties:
+      class:
+        allowedClasses: 'link-text, link-button'
+        default: 'link-text'
+    page:
+      properties:
+        class:
+          default: 'link-text'
+    file:
+      properties:
+        class:
+          default: 'link-text'
+        target:
+          default: '_blank'
+    folder:
+      properties:
+        class:
+          default: 'link-text'
+    url:
+      properties:
+        class:
+          default: 'link-text'
+        target:
+          default: '_blank'
+    mail:
+      properties:
+        class:
+          default: 'link-text'
+    telephone:
+      properties:
+        class:
+          default: 'link-text'

@@ -1,0 +1,112 @@
+/* purgecss start ignore */
+body, html {
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+    @apply relative font-body font-regular text-body min-h-screen;
+}
+
+h1, h2, h3, h4, h5 {
+    @apply font-body font-bold text-accent;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 1.75rem;
+    line-height: 1.5;
+}
+h2 {
+    font-size: 1.3125rem;
+    line-height: 1.333;
+}
+h3 {
+    font-size: 1rem;
+    line-height: 1.333;
+}
+h4 {
+    font-size: .875rem;
+    line-height: 1.333;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.link-text {
+    @apply text-accent font-bold hover:underline;
+}
+
+.link-button {
+    line-height: 1.2;
+    @apply inline-block bg-white px-4 py-2 text-sm rounded font-body font-bold text-accent border border-accent transition-colors hover:bg-accent hover:text-white;
+}
+
+.link-button-icon {
+    @apply inline-block w-8 h-8 flex justify-center items-center text-accent border-2 border-accent-10 rounded-full transition-colors hover:bg-accent hover:text-white;
+}
+
+.image-content {
+    @apply block w-full h-auto rounded bg-gray;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    @apply static m-0 right-auto left-auto;
+
+}
+
+.swiper-pagination{
+    @apply static;
+}
+
+.accordion-item p:last-child{
+    @apply mb-0;
+}
+
+.accordion-item:hover{
+    @apply border-accent cursor-pointer;
+}
+
+.accordion-content{
+    @apply hidden;
+}
+
+.accordion-content.active{
+    @apply block border-accent;
+}
+
+.accordion-icon.rotate45{
+    @apply -rotate-45 transition;
+}
+
+
+/**
+ * Layout classes
+ */
+.container {
+    max-width: 80rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/**
+ * Swiper style overrides
+ */
+.swiper-container {
+    position: relative;
+    width: 100%;
+}
+.swiper-slide {
+    margin-right: 1rem;
+}
+
+/**
+ * Custom editor styling
+ */
+.cke_editable {
+    @apply p-4;
+}
+
+/* purgecss end ignore */

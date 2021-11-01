@@ -1,0 +1,120 @@
+page = PAGE
+page {
+
+    meta {
+        X-UA-Compatible = IE=edge,chrome=1
+        X-UA-Compatible.attribute = http-equiv
+        viewport = width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no
+    }
+
+    typeNum = 0
+
+    includeCSS {
+        fonts = https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap
+        fonts.external = 1
+        main = EXT:clubcms/Resources/Public/style.css
+    }
+
+    cssInline {
+        50 = FLUIDTEMPLATE
+        50 {
+            file = EXT:clubcms/Resources/Private/Template/CssVariables.css
+
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+                10 {
+                    as = site
+                }
+                20 = UlbrichMedia\ClubCMS\DataProcessing\CssVariableDataProcessor
+                20 {
+                    as = variables
+                }
+            }
+        }
+    }
+
+    includeJSFooter {
+        main = EXT:clubcms/Resources/Public/index.js
+    }
+
+    100 = FLUIDTEMPLATE
+    100 {
+        layoutRootPaths {
+            100 = EXT:clubcms/Resources/Private/Layout/Page/
+        }
+        partialRootPaths {
+            100 = EXT:clubcms/Resources/Private/Partial/Page/
+        }
+        templateRootPaths {
+            100 = EXT:clubcms/Resources/Private/Template/Page/
+        }
+
+        templateName = TEXT
+        templateName.stdWrap {
+            cObject = TEXT
+            cObject {
+                data = site:clubcms_layout
+            }
+            ifEmpty = SideMenu
+        }
+
+        templateName.stdWrap = CASE
+        templateName.stdWrap {
+            key.data = site:clubcms_layout
+
+            headermenu = Text
+            headermenu.value = HeaderMenu
+
+            default = TEXT
+            default.value = SideMenu
+        }
+
+        variables {
+
+            contentMain = CONTENT
+            contentMain {
+                table = tt_content
+                select {
+                    orderBy = sorting
+                    where = {#colPos}=50
+                }
+            }
+
+            contentFooter = CONTENT
+            contentFooter {
+                table = tt_content
+                select {
+                    orderBy = sorting
+                    where = {#colPos}=100
+                    slide = -1
+                }
+            }
+
+        }
+
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+            10 {
+                as = site
+            }
+
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 {
+                special = directory
+                special.value.data = site:rootPageId
+                levels = 2
+                as = navigation
+                expandAll = 1
+                includeSpacer = 1
+                titleField = nav_title // title
+            }
+
+            30 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            30 {
+                references.data = levelfield : 0, clubcms_logo, slide
+                as = clubcms_logo
+            }
+        }
+    }
+
+}

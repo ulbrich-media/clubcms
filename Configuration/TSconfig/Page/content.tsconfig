@@ -1,0 +1,44 @@
+mod.wizards.newContentElement.wizardItems {
+    common {
+        elements {
+
+            media {
+                iconIdentifier = content-media
+                title = Media
+                description = Images and Video
+                tt_content_defValues {
+                    CType = media
+                }
+            }
+
+            teaser {
+                iconIdentifier = content-card-group
+                title = Teaser
+                description = Show a preview of something
+                tt_content_defValues {
+                    CType = teaser
+                }
+            }
+
+            accordion {
+                iconIdentifier = content-accordion
+                title = Akkordeon
+                description = Display some content in an accordion
+                tt_content_defValues {
+                    CType = accordion
+                }
+            }
+
+            facts {
+                iconIdentifier = content-listgroup
+                title = Fakten
+                description = A list of facts
+                tt_content_defValues {
+                    CType = facts
+                }
+            }
+
+        }
+        show := addToList(media,teaser,accordion,facts)
+    }
+}

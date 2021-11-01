@@ -1,0 +1,95 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="Main">
+
+    <f:if condition="{data.bodytext}">
+        <f:format.html>{data.bodytext}</f:format.html>
+    </f:if>
+
+    <f:switch expression="{data.layout}">
+        <f:case value="slider">
+            <f:render section="slider" arguments="{_all}" />
+        </f:case>
+        <f:case value="grid">
+            <f:render section="grid" arguments="{_all}" />
+        </f:case>
+        <f:defaultCase>
+            <f:render section="simple" arguments="{_all}" />
+        </f:defaultCase>
+    </f:switch>
+
+</f:section>
+
+<f:section name="grid">
+
+    <f:if condition="{assets}">
+        <div class="flex flex-wrap -mx-2">
+            <f:for each="{assets}" as="reference">
+
+                <div class="mb-4 px-2 w-1/2">
+                    <f:render section="asset" arguments="{reference: reference, width: '600'}" />
+                </div>
+
+            </f:for>
+        </div>
+    </f:if>
+
+</f:section>
+
+<f:section name="slider">
+
+    <f:if condition="{assets}">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <f:for each="{assets}" as="reference">
+
+                    <div class="swiper-slide">
+                        <f:render section="asset" arguments="{reference: reference, width: '1200'}" />
+                    </div>
+
+                </f:for>
+            </div>
+
+            <div class="static flex flex-row flex-wrap justify-between content-center py-4">
+                <div class="swiper-button-prev flex-none"></div>
+                <div class="swiper-pagination flex-none self-center"><p class="m-0">Pagination</p></div>
+                <div class="swiper-button-next flex-none"></div>
+            </div>
+        </div>
+    </f:if>
+
+</f:section>
+
+<f:section name="simple">
+
+    <f:if condition="{assets}">
+        <f:for each="{assets}" as="reference">
+
+            <div class="mb-4">
+                <f:render section="asset" arguments="{reference: reference, width: '1200'}" />
+            </div>
+
+        </f:for>
+    </f:if>
+
+</f:section>
+
+<f:section name="asset">
+
+    <f:image image="{reference}" width="{width}" class="image-content" />
+    <f:if condition="{reference.title} || {reference.description}">
+        <div class="mt-2 text-xs">
+            <f:if condition="{reference.title}">
+                <strong>{reference.title}</strong><br />
+            </f:if>
+            <f:if condition="{reference.description}">
+                <f:format.nl2br>{reference.description}</f:format.nl2br>
+            </f:if>
+        </div>
+    </f:if>
+
+</f:section>
+
+</html>

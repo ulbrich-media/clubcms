@@ -1,0 +1,19 @@
+@import "../Library/Tailwind/tailwind.css";
+
+@import "../../../../../node_modules/swiper/swiper-bundle.css";
+
+@import "../Library/FontAwesome/css/all.min.css";
+
+:root {
+    --color-accent: 108, 31%, 48%;
+    --font-body: 'Poppins';
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+}
+
+/* Custom css */
+@import "fonts.css";
+
+@import "customs.css";
+
+@import "page.css";

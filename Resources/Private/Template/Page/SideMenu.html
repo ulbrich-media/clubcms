@@ -1,0 +1,59 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="Main">
+
+    <div class="container">
+        <div class="page page-side-menu">
+            <div class="menu-container">
+                <div class="menu">
+                    <f:render partial="SideMenuNavigation" arguments="{_all}" />
+                </div>
+            </div>
+
+            <div class="main-container">
+                <main id="site-main" class="main">
+
+                    <div class="block xl:hidden py-4 lg:py-8">
+                        <div class="flex justify-between">
+
+                            <div class="burger-container h-12 w-12 flex-none">
+                                <div id="menu-burger" class="burger h-full w-full cursor-pointer rounded-full transition-colors border-2 border-accent-10 hover:border-accent flex flex-col justify-between py-4">
+                                    <span class="block mx-auto w-4 bg-accent rounded" style="height: 2px;"></span>
+                                    <span class="block mx-auto w-4 bg-accent rounded" style="height: 2px;"></span>
+                                    <span class="block mx-auto w-4 bg-accent rounded" style="height: 2px;"></span>
+                                </div>
+                            </div>
+
+                            <a class="block flex-initial" href="/">
+                                <f:if condition="{clubcms_logo.0}">
+                                    <f:then>
+                                        <f:image image="{clubcms_logo.0}" class="mx-auto" style="max-width: 10rem; max-height: 3rem;" />
+                                    </f:then>
+                                    <f:else>
+                                        {site.configuration.websiteTitle}
+                                    </f:else>
+                                </f:if>
+                            </a>
+
+                            <div class="h-12 w-12 flex-none"></div>
+
+                        </div>
+                    </div>
+
+                    <div class="py-4 sm:pt-6 xl:pt-12 xl:pb-8 2xl:pt-16">
+                        <f:format.raw>{contentMain}</f:format.raw>
+                        <f:format.raw>{contentFooter}</f:format.raw>
+                    </div>
+
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <f:render partial="Footer" arguments="{_all}" />
+
+</f:section>
+
+</html>

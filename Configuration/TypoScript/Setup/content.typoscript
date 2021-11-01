@@ -1,0 +1,87 @@
+lib.contentElement {
+    layoutRootPaths.10 = EXT:clubcms/Resources/Private/Layout/Content/
+    partialRootPaths.10 = EXT:clubcms/Resources/Private/Partial/Content/
+    templateRootPaths.10 = EXT:clubcms/Resources/Private/Template/Content/
+}
+
+lib.attachedContentDataProcessor = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+lib.attachedContentDataProcessor {
+
+    table = tx_clubcms_attached_content
+    pidInList.field = pid
+    where {
+        data = field:uid
+        intval = 1
+        wrap = tt_content=|
+    }
+    orderBy = sorting
+    as = attachedContent
+
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = media
+            as = media
+        }
+    }
+}
+
+
+tt_content {
+
+    textmedia {
+        dataProcessing >
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references {
+                    fieldName = media
+                }
+                as = assets
+            }
+        }
+    }
+
+    media =< lib.contentElement
+    media {
+        templateName = Media
+        dataProcessing >
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references {
+                    fieldName = media
+                }
+                as = assets
+            }
+        }
+    }
+
+    teaser =< lib.contentElement
+    teaser {
+        templateName = Teaser
+        dataProcessing >
+        dataProcessing {
+            10 < lib.attachedContentDataProcessor
+        }
+    }
+
+    accordion =< lib.contentElement
+    accordion {
+        templateName = Accordion
+        dataProcessing >
+        dataProcessing {
+            10 < lib.attachedContentDataProcessor
+        }
+    }
+
+    facts =< lib.contentElement
+    facts {
+        templateName = Facts
+        dataProcessing >
+        dataProcessing {
+            10 < lib.attachedContentDataProcessor
+        }
+    }
+
+}
