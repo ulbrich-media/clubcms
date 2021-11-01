@@ -2,6 +2,7 @@
   "name": "ulbrich-media/clubcms",
   "type": "typo3-cms-extension",
   "description": "ClubCMS website package",
+  "license": "GPL-3.0",
   "require": {
     "typo3/minimal": "10.4.*",
     "mexitek/phpcolors": "^1.0"
