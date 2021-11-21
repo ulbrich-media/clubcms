@@ -3,7 +3,12 @@ body, html {
     -webkit-font-smoothing: antialiased;
     font-size: 16px;
     line-height: 1.6;
-    @apply relative font-body font-regular text-body min-h-screen;
+    @apply relative font-body font-regular text-body min-h-screen overflow-x-hidden;
+}
+@screen lg {
+    body, html {
+        overflow-x: initial;
+    }
 }
 
 h1, h2, h3, h4, h5 {
