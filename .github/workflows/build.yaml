@@ -3,7 +3,7 @@ name: Build public assets
 on:
   push:
     branches:
-      - production
+      - development
 
 jobs:
 
