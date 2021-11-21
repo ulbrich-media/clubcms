@@ -32,3 +32,6 @@ $GLOBALS['TCA']['pages']['palettes']['clubcms'] = [
 
 
 $GLOBALS['TCA']['pages']['types']['1']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
+$GLOBALS['TCA']['pages']['types']['3']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
+$GLOBALS['TCA']['pages']['types']['4']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
+$GLOBALS['TCA']['pages']['types']['7']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
