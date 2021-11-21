@@ -18,10 +18,16 @@ jobs:
           node-version: '17.x'
       - name: Install dependencies
         run: yarn --frozen-lockfile
+
       - run: yarn build
-      - name: Commit report
+
+      - name: Check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$(if [ -n "$(git status --porcelain)" ]; then echo "true"; else echo "false"; fi)
+      - name: Commit public assets
         run: |
           git config --global user.name 'Marcel Ulbrich'
           git config --global user.email 'ulbrich-media@users.noreply.github.com'
-          git commit -am "build: public assets"
+          git add -A
+          git commit -m "build: public assets"
           git push
