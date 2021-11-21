@@ -24,6 +24,7 @@ jobs:
         id: git-check
         run: echo ::set-output name=modified::$(if [ -n "$(git status --porcelain)" ]; then echo "true"; else echo "false"; fi)
       - name: Commit public assets
+        if: steps.git-check.outputs.modified == 'true'
         run: |
           git config --global user.name 'Marcel Ulbrich'
           git config --global user.email 'ulbrich-media@users.noreply.github.com'
