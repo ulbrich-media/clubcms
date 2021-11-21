@@ -5,10 +5,6 @@ on:
     branches:
       - production
       - feature/build
-  pull_request:
-    branches:
-      - production
-      - feature/build
 
 jobs:
 
@@ -23,3 +19,9 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - run: yarn build
+      - name: Commit report
+        run: |
+          git config --global user.name 'Marcel Ulbrich'
+          git config --global user.email 'ulbrich-media@users.noreply.github.com'
+          git commit -am "build: public assets"
+          git push
