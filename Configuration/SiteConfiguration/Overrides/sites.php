@@ -8,7 +8,6 @@ $GLOBALS['SiteConfiguration']['site']['columns']['clubcms_layout'] = [
         'renderType' => 'selectSingle',
         'items' => [
             ["Side Menu", 'SideMenu'],
-            ["Header Menu", 'HeaderMenu'],
         ],
         'default' => 'SideMenu'
     ],
