@@ -1,4 +1,5 @@
 import SwiperCore, { Navigation, Pagination } from 'swiper/core';
+import Alpine from "alpinejs";
 
 // configure Swiper to use modules
 SwiperCore.use([Navigation, Pagination]);
@@ -18,16 +19,7 @@ const swiper = new SwiperCore('.swiper-container', {
 });
 
 
-
-let accordionHead = document.getElementsByClassName('accordion-head');
-
-for(let i = 0; i < accordionHead.length; i++){
-    accordionHead[i].addEventListener("click", function() {
-        let ddd = this.nextElementSibling;
-        ddd.classList.toggle("active");
-    });
-}
-
+Alpine.start();
 
 
 document.getElementById("menu-burger").addEventListener('click', function () {

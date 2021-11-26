@@ -33,6 +33,7 @@
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
+    "alpinejs": "^3.5.2",
     "glob-all": "^3.2.1"
   }
 }

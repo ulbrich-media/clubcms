@@ -11,19 +11,32 @@
     <f:if condition="{attachedContent}">
 
         <f:for each="{attachedContent}" as="item">
-            <div class="accordion-item p-4 mb-2 rounded border border-gray">
-                <div class="accordion-head flex flex-row flex-wrap justify-between items-center">
-                    <h3 class="mb-0">{item.data.title}</h3>
-                    <div class="">
-                        <i class="link-button-icon accordion-icon fas fa-plus"></i>
+
+            <div class="px-4 mb-2 rounded border border-accent-10 transition-colors hover:border-accent"
+                 x-data="{ open: false, hover: false }" :class="{ 'border-accent': open }"
+            >
+                <f:if condition="{item.data.title} && {item.data.body}">
+
+                    <div class="flex flex-row justify-between py-4 cursor-pointer"
+                         @click="open = !open" @mouseover="hover = true" @mouseout="hover = false"
+                    >
+                        <h3 class="mb-0 self-center">{item.data.title}</h3>
+                        <div class="self-start transform transition-transform rotate-0"
+                             :class="{ '-rotate-45': open }"
+                        >
+                            <i class="link-button-icon fas fa-plus"
+                               :class="{ 'active': hover || open }"
+                            ></i>
+                        </div>
                     </div>
-                </div>
-                <f:if condition="{item.data.body}">
-                    <div class="accordion-content">
+
+                    <div class="mb-4"
+                         x-show="open" @click.outside="open = false"
+                    >
                         <f:format.html>{item.data.body}</f:format.html>
                     </div>
-                </f:if>
 
+                </f:if>
             </div>
         </f:for>
 
