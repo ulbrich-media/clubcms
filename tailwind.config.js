@@ -50,6 +50,10 @@ module.exports = {
       translate: {
         "screen": "100vw",
         "-screen": "-100vw",
+      },
+      inset: {
+        "screen": "100vw",
+        "-screen": "-100vw",
       }
     },
   },

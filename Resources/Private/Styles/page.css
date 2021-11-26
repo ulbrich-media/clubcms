@@ -4,7 +4,7 @@
 }
 
 .menu-container {
-    @apply fixed z-20 inset-0 bg-white transform transition-transform -translate-x-screen overflow-y-auto;
+    @apply fixed z-20 -left-screen top-0 w-screen bottom-0 bg-white transform transition-transform translate-x-0 overflow-y-auto;
     @apply sm:absolute sm:w-80 sm:min-h-screen sm:-translate-x-80;
     @apply flex-none xl:translate-x-0 xl:sticky xl:top-0 xl:inset-x-0 xl:mr-8 2xl:mr-32;
 }
@@ -27,7 +27,7 @@ body.active-menu {
     @apply fixed sm:relative;
 }
 .active-menu .menu-container {
-    @apply translate-x-0;
+    @apply translate-x-screen;
 }
 .active-menu .main-container {
     @apply translate-x-screen sm:translate-x-80 sm:opacity-40 xl:translate-x-0 xl:opacity-100;
