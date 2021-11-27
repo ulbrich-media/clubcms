@@ -43,8 +43,7 @@
                     </div>
 
                     <div class="py-4 sm:pt-6 xl:pt-12 xl:pb-8 2xl:pt-16">
-                        <f:format.raw>{contentMain}</f:format.raw>
-                        <f:format.raw>{contentFooter}</f:format.raw>
+                        <f:render partial="Content" section="content" arguments="{_all}" />
                     </div>
 
                 </main>

@@ -7,3 +7,8 @@ defined('TYPO3_MODE') or die();
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['clubcms'] = 'EXT:clubcms/Configuration/Yaml/RTE.yaml';
 
 $GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields'] .= ',clubcms_logo';
+
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
+    'options.pageTree.doktypesToShowInNewPageDragArea := addToList(510)'
+);

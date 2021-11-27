@@ -1,0 +1,95 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:section name="content">
+
+    <f:switch expression="{data.doktype}">
+        <f:case value="510">
+            <f:render section="head-event" arguments="{_all}" />
+        </f:case>
+    </f:switch>
+    
+    <f:format.raw>{contentMain}</f:format.raw>
+    <f:format.raw>{contentFooter}</f:format.raw>
+
+</f:section>
+
+<f:section name="head-event">
+
+    <div class="mb-10 lg:mb-16 xl2:mb-20">
+        <h1 class="mb-0">{data.title}</h1>
+
+        <div class="h1">
+            <div class="text-body">
+
+                <f:if condition="{data.clubcms_event_fullday} && {data.clubcms_event_start} && !{data.clubcms_event_end}">
+                    <f:then>
+
+                        <f:format.date date="{data.clubcms_event_start}" format="d.m.Y" />
+
+                    </f:then>
+                    <f:else if="{data.clubcms_event_fullday} && {data.clubcms_event_start} && {data.clubcms_event_end}">
+
+                        <f:format.date date="{data.clubcms_event_start}" format="d.m.Y" /> 
+                        <span class="font-regular"> - </span>
+                        <f:format.date date="{data.clubcms_event_end}" format="d.m.Y" />
+
+                    </f:else>
+                    <f:else if="{data.clubcms_event_start} && !{data.clubcms_event_end}">
+
+                        <span class="mr-2">
+                            <f:format.date date="{data.clubcms_event_start}" format="d.m.Y" />
+                        </span>
+                        <span class="font-regular">
+                            <f:format.date date="{data.clubcms_event_start}" format="H:i" />
+                        </span>
+
+                    </f:else>
+                    <f:else if="{data.clubcms_event_start} && {data.clubcms_event_end} 
+                        && {f:format.date(format: 'd.m.Y', date: data.clubcms_event_start)} == {f:format.date(format: 'd.m.Y', date: data.clubcms_event_end)}"
+                    >
+
+                        <span class="mr-2">
+                            <f:format.date date="{data.clubcms_event_start}" format="d.m.Y" />
+                        </span>
+                        <span class="font-regular">
+                            <f:format.date date="{data.clubcms_event_start}" format="H:i" /> - <f:format.date date="{data.clubcms_event_end}" format="H:i" />
+                        </span>
+
+                    </f:else>
+                    <f:else if="{data.clubcms_event_start} && {data.clubcms_event_end}">
+
+                        <span class="mr-2">
+                            <f:format.date date="{data.clubcms_event_start}" format="d.m.Y" />
+                        </span>
+                        <span class="font-regular">
+                            <f:format.date date="{data.clubcms_event_start}" format="H:i" />
+                        </span>
+                        <span class="font-regular"> - </span>
+                        <span class="mr-2">
+                            <f:format.date date="{data.clubcms_event_end}" format="d.m.Y" />
+                        </span>
+                        <span class="font-regular">
+                            <f:format.date date="{data.clubcms_event_end}" format="H:i" />
+                        </span>
+
+                    </f:else>
+
+                </f:if>
+
+            </div>
+        </div>
+
+        <f:if condition="{data.clubcms_event_location}">
+            <p>
+                <i class="fas fa-map-marker-alt text-accent"></i>
+                <span>
+                    {data.clubcms_event_location}
+                </span>
+            </p>
+        </f:if>
+
+    </div>
+
+</f:section>
+
+</html>
