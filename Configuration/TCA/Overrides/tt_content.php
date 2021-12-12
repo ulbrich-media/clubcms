@@ -72,6 +72,15 @@ $GLOBALS['TCA']['tt_content']['palettes']['content_attachedContent'] = [
             clubcms_attached_content,
     '
 ];
+$GLOBALS['TCA']['tt_content']['palettes']['content_documentList'] = [
+    'showitem' => '
+            layout,
+    --linebreak--,
+            bodytext,
+    --linebreak--,
+            pi_flexform,
+    '
+];
 
 
 /**
@@ -378,5 +387,38 @@ $GLOBALS['TCA']['tt_content']['types']['facts'] = [
                 ]
             ]
         ]
+    ]
+];
+
+
+
+/**
+ * Plugin configuration
+ */
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'Document List',
+        'documentlist',
+        'content-menu-abstract',
+    ],
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    '*',
+    'FILE:EXT:clubcms/Configuration/FlexForm/DocumentList.xml',
+    'documentlist'
+);
+
+$GLOBALS['TCA']['tt_content']['types']['documentlist'] = [
+    'showitem' => '
+        --div--;Content, 
+            --palette--;;general,
+            --palette--;;headers,
+            --palette--;;content_documentList,
+    '.$showitemSuffix,
+    'columnsOverrides' => [
+
     ]
 ];

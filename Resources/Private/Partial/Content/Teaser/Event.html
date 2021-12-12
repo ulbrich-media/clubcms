@@ -1,0 +1,88 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="flex flex-col border-2 border-accent-10 rounded overflow-hidden place-content-between">
+    <div class="px-4">
+
+        <div class="{f:if(condition: page.media.0, then: 'pt-4', else: 'pt-6')}">
+            <h3 class="mb-2">
+                <f:link.page class="block" pageUid="{page.uid}">{page.title}</f:link.page>
+            </h3>
+        </div>
+
+        <div class="text-body mb-4">
+
+            <f:if condition="{page.clubcms_event_fullday} && {page.clubcms_event_start} && !{page.clubcms_event_end}">
+                <f:then>
+
+                    <span class="font-bold"><f:format.date date="{page.clubcms_event_start}" format="d.m.Y" /></span>
+
+                </f:then>
+                <f:else if="{page.clubcms_event_fullday} && {page.clubcms_event_start} && {page.clubcms_event_end}">
+
+                    <span class="font-bold"><f:format.date date="{page.clubcms_event_start}" format="d.m.Y" /></span>
+                    <span class=""> - </span>
+                    <f:format.date date="{page.clubcms_event_end}" format="d.m.Y" />
+
+                </f:else>
+                <f:else if="{page.clubcms_event_start} && !{page.clubcms_event_end}">
+
+                    <span class="font-bold mr-2">
+                        <f:format.date date="{page.clubcms_event_start}" format="d.m.Y" />
+                    </span>
+                    <span class="">
+                        <f:format.date date="{page.clubcms_event_start}" format="H:i" />
+                    </span>
+
+                </f:else>
+                <f:else if="{page.clubcms_event_start} && {page.clubcms_event_end}
+                        && {f:format.date(format: 'd.m.Y', date: page.clubcms_event_start)} == {f:format.date(format: 'd.m.Y', date: page.clubcms_event_end)}"
+                >
+
+                    <span class="font-bold mr-2">
+                        <f:format.date date="{page.clubcms_event_start}" format="d.m.Y" />
+                    </span>
+                    <span class="">
+                        <f:format.date date="{page.clubcms_event_start}" format="H:i" /> - <f:format.date date="{page.clubcms_event_end}" format="H:i" />
+                    </span>
+
+                </f:else>
+                <f:else if="{page.clubcms_event_start} && {page.clubcms_event_end}">
+
+                    <span class="mr-2">
+                        <f:format.date date="{page.clubcms_event_start}" format="d.m.Y" />
+                    </span>
+                    <span class="">
+                        <f:format.date date="{page.clubcms_event_start}" format="H:i" />
+                    </span>
+                    <span class=""> - </span>
+                    <span class="mr-2">
+                        <f:format.date date="{page.clubcms_event_end}" format="d.m.Y" />
+                    </span>
+                    <span class="">
+                        <f:format.date date="{page.clubcms_event_end}" format="H:i" />
+                    </span>
+
+                </f:else>
+
+            </f:if>
+
+        </div>
+
+    <f:if condition="{page.clubcms_event_location}">
+        <div class="mb-4">
+            <i class="fas fa-map-marker-alt text-accent mr-1"></i>
+            <span>{page.clubcms_event_location}</span>
+        </div>
+    </f:if>
+
+    </div>
+
+    <div class="m-3">
+        <f:link.page class="link-button-icon" pageUid="{page.uid}">
+            <i class="fas fa-arrow-right"></i>
+        </f:link.page>
+    </div>
+
+</div>
+
+</html>
