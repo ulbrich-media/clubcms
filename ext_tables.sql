@@ -12,6 +12,7 @@ CREATE TABLE tt_content
 #
 CREATE TABLE pages
 (
+    teaser text,
     clubcms_logo int(11) DEFAULT '0' NOT NULL,
     clubcms_icon varchar(255) DEFAULT '' NOT NULL,
 

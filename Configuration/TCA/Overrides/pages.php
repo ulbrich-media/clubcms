@@ -91,6 +91,16 @@ $GLOBALS['TCA']['pages']['types']['510']['showitem'] .= ', --div--;Event, --pale
 # ClubCMS page properties 
 #### 
 
+$GLOBALS['TCA']['pages']['columns']['teaser'] = [
+    'exclude' => 1,
+    'label' => 'Teaser',
+    'config' => [
+        'type' => 'text',
+        'cols' => 60,
+        'rows' => 5,
+    ],
+];
+
 $GLOBALS['TCA']['pages']['columns']['clubcms_logo'] = [
     'exclude' => 1,
     'label' => 'Logo',
@@ -125,3 +135,5 @@ $GLOBALS['TCA']['pages']['types']['3']['showitem'] .= ', --div--;clubcms, --pale
 $GLOBALS['TCA']['pages']['types']['4']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
 $GLOBALS['TCA']['pages']['types']['7']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
 $GLOBALS['TCA']['pages']['types']['510']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('pages', 'title', 'teaser', 'after:nav_title');

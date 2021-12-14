@@ -11,6 +11,9 @@
             <h3>
                 <f:link.page class="block" pageUid="{page.uid}">{page.title}</f:link.page>
             </h3>
+            <f:if condition="!{page.media.0} && {page.teaser}">
+                <f:format.nl2br>{page.teaser}</f:format.nl2br>
+            </f:if>
         </div>
 
     </div>
