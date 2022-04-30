@@ -78,12 +78,10 @@ $GLOBALS['TCA']['pages']['columns']['clubcms_event_location'] = [
     ],
 ];
 
-$GLOBALS['TCA']['pages']['palettes']['clubcms_event'] = [
+$GLOBALS['TCA']['pages']['palettes']['page_event'] = [
     'label' => 'Event',
     'showitem' => 'clubcms_event_fullday, --linebreak--, clubcms_event_start, clubcms_event_end, --linebreak--, clubcms_event_location',
 ];
-
-$GLOBALS['TCA']['pages']['types']['510']['showitem'] .= ', --div--;Event, --palette--;;clubcms_event';
 
 
 
@@ -125,15 +123,80 @@ $GLOBALS['TCA']['pages']['columns']['clubcms_icon'] = [
     ],
 ];
 
-$GLOBALS['TCA']['pages']['palettes']['clubcms'] = [
-    'label' => 'clubcms',
-    'showitem' => 'clubcms_logo, --linebreak--, clubcms_icon',
+
+
+####
+# Reorganized palettes and backend page property forms
+####
+
+$GLOBALS['TCA']['pages']['palettes']['standard']['showitem'] = '
+        doktype, 
+        hidden, 
+';
+$GLOBALS['TCA']['pages']['palettes']['title']['showitem'] = '
+        title, 
+    --linebreak--, 
+        slug, 
+';
+$GLOBALS['TCA']['pages']['palettes']['navigation'] = [
+    'title' => '',
+    'showitem' => '
+        clubcms_icon,
+    --linebreak--, 
+        nav_title, 
+        nav_hide, 
+    --linebreak--, 
+        clubcms_icon
+    --linebreak--, 
+        teaser,
+    --linebreak--, 
+        media,
+    '
 ];
 
-$GLOBALS['TCA']['pages']['types']['1']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
-$GLOBALS['TCA']['pages']['types']['3']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
-$GLOBALS['TCA']['pages']['types']['4']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
-$GLOBALS['TCA']['pages']['types']['7']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
-$GLOBALS['TCA']['pages']['types']['510']['showitem'] .= ', --div--;clubcms, --palette--;;clubcms';
+$GLOBALS['TCA']['pages']['palettes']['page_shortcut'] = [
+    'title' => '',
+    'showitem' => '
+        shortcut_mode, 
+    --linebreak--, 
+        shortcut,
+    '
+];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('pages', 'title', 'teaser', 'after:nav_title');
+$GLOBALS['TCA']['pages']['palettes']['page_mountpoint'] = [
+    'title' => '',
+    'showitem' => '
+        mount_pid_ol, 
+    --linebreak--, 
+        mount_pid,
+    '
+];
+
+
+# 1: Default page
+# 3: External Link
+# 4: Shortcut
+# 7: Mount Point
+# 199: Menu Separator
+# 254: Folder
+# 255: Recycler
+# 510 = event
+# 520 = news article
+
+$GLOBALS['TCA']['pages']['types']['1']['showitem'] = \UlbrichMedia\ClubCMS\Utility\TCA::getItemsForPageType('');
+$GLOBALS['TCA']['pages']['types']['3']['showitem'] = \UlbrichMedia\ClubCMS\Utility\TCA::getItemsForPageType('
+    --palette--;;external,'
+);
+$GLOBALS['TCA']['pages']['types']['4']['showitem'] = \UlbrichMedia\ClubCMS\Utility\TCA::getItemsForPageType('
+    '
+);
+$GLOBALS['TCA']['pages']['types']['7']['showitem'] = \UlbrichMedia\ClubCMS\Utility\TCA::getItemsForPageType('
+    --palette--;;page_mountpoint,'
+);
+$GLOBALS['TCA']['pages']['types']['199']['showitem'] = \UlbrichMedia\ClubCMS\Utility\TCA::getItemsForPageType('', false);
+$GLOBALS['TCA']['pages']['types']['254']['showitem'] = \UlbrichMedia\ClubCMS\Utility\TCA::getItemsForPageType('', false);
+$GLOBALS['TCA']['pages']['types']['255']['showitem'] = \UlbrichMedia\ClubCMS\Utility\TCA::getItemsForPageType('', false);
+
+$GLOBALS['TCA']['pages']['types']['510']['showitem'] = \UlbrichMedia\ClubCMS\Utility\TCA::getItemsForPageType('
+    --palette--;;page_event,'
+);
