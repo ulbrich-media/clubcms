@@ -1,0 +1,18 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="grid sm:grid-cols-2 gap-4">
+    <f:for each="{pages}" as="page">
+
+        <f:switch expression="{page.doktype}">
+            <f:case value="510">
+                <f:render partial="Teaser/Event" arguments="{page: page}" />
+            </f:case>
+            <f:defaultCase>
+                <f:render partial="Teaser/Page" arguments="{page: page}" />
+            </f:defaultCase>
+        </f:switch>
+
+    </f:for>
+</div>
+
+</html>

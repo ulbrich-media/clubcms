@@ -1,0 +1,29 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<div class="flex flex-col border-2 border-accent-10 rounded overflow-hidden place-content-between">
+    <div class="">
+
+        <f:if condition="{page.media.0}">
+            <f:image image="{page.media.0}" width="920" class="block w-full h-auto bg-gray" loading="lazy" />
+        </f:if>
+
+        <div class="px-4 {f:if(condition: page.media.0, then: 'pt-4', else: 'pt-6')}">
+            <h3>
+                <f:link.page class="block" pageUid="{page.uid}">{page.title}</f:link.page>
+            </h3>
+            <f:if condition="!{page.media.0} && {page.teaser}">
+                <f:format.nl2br>{page.teaser}</f:format.nl2br>
+            </f:if>
+        </div>
+
+    </div>
+
+    <div class="m-4">
+        <f:link.page class="link-button-icon" pageUid="{page.uid}">
+            <i class="fas fa-arrow-right"></i>
+        </f:link.page>
+    </div>
+
+</div>
+
+</html>

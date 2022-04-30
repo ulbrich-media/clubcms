@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>Options</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+
+                    <type>
+                        <TCEforms>
+                            <label>Type of list</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <items>
+                                    <numIndex index="0">
+                                        <numIndex index="0">Show subpages of selected pages</numIndex>
+                                        <numIndex index="1">subpages</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1">
+                                        <numIndex index="0">Show selected pages</numIndex>
+                                        <numIndex index="1">pages</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </type>
+
+                    <pages>
+                        <TCEforms>
+                            <label>Pages</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>pages</allowed>
+                                <size>10</size>
+                                <maxitems>100</maxitems>
+                                <minitems>1</minitems>
+                                <show_thumbs>1</show_thumbs>
+                            </config>
+                        </TCEforms>
+                    </pages>
+
+                    <doctypes>
+                        <TCEforms>
+                            <label>Allowed document types</label>
+                            <description>No selections shows any document type. </description>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectCheckBox</renderType>
+                                <items>
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">Pages</numIndex>
+                                        <numIndex index="1">1,3,4,7</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">Events</numIndex>
+                                        <numIndex index="1">510</numIndex>
+                                    </numIndex>
+                                    <!--
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">News Articles</numIndex>
+                                        <numIndex index="1">520</numIndex>
+                                    </numIndex>
+                                    -->
+                                </items>
+                                <maxitems>3</maxitems>
+                                <size>3</size>
+                            </config>
+                        </TCEforms>
+                    </doctypes>
+
+                    <!-- Settings for a pagination -->
+                    <!--
+                    <enablePagination>
+                        <TCEforms>
+                            <label>Enable Pagination</label>
+                            <config>
+                                <type>check</type>
+                                <renderType>checkboxToggle</renderType>
+                            </config>
+                        </TCEforms>
+                    </enablePagination>
+                    <pagesPerSite>
+                        <TCEforms>
+                            <label>Pages per site</label>
+                            <config>
+                                <type>input</type>
+                                <size>10</size>
+                                <eval>trim,int+</eval>
+                                <default>12</default>
+                            </config>
+                        </TCEforms>
+                    </pagesPerSite>
+                    -->
+
+                    <limit>
+                        <TCEforms>
+                            <label>Limit number of pages</label>
+                            <config>
+                                <type>input</type>
+                                <size>10</size>
+                                <eval>trim,int+</eval>
+                            </config>
+                        </TCEforms>
+                    </limit>
+
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

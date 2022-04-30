@@ -12,8 +12,14 @@ CREATE TABLE tt_content
 #
 CREATE TABLE pages
 (
+    teaser text,
     clubcms_logo int(11) DEFAULT '0' NOT NULL,
     clubcms_icon varchar(255) DEFAULT '' NOT NULL,
+
+    clubcms_event_fullday tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	clubcms_event_start int(11) unsigned DEFAULT '0',
+	clubcms_event_end int(11) unsigned DEFAULT '0',
+    clubcms_event_location varchar(255) DEFAULT '' NOT NULL,
 );
 
 #

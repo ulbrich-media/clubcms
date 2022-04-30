@@ -38,7 +38,16 @@ mod.wizards.newContentElement.wizardItems {
                 }
             }
 
+            documentlist {
+                iconIdentifier = content-menu-abstract
+                title = Document List
+                description = List of pages of different types
+                tt_content_defValues {
+                    CType = documentlist
+                }
+            }
+
         }
-        show := addToList(media,teaser,accordion,facts)
+        show := addToList(media, teaser, accordion, facts, documentlist)
     }
 }
