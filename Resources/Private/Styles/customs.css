@@ -107,10 +107,26 @@ p {
 .swiper-slide:last-child {
     margin-right: 0;
 }
+.swiper-control-next, .swiper-control-prev {
+    @apply cursor-pointer;
+}
 .swiper-pagination-fraction {
     bottom: inherit;
     left: inherit;
     width: inherit;
+}
+
+.swiper-type-free .swiper-slide {
+    @apply w-auto;
+}
+.swiper-type-free .image-content {
+    @apply w-auto;
+    height: 22rem;
+}
+@screen lg {
+    .swiper-type-free .image-content {
+        height: 27rem;
+    }
 }
 
 /**

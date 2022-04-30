@@ -255,6 +255,7 @@ $GLOBALS['TCA']['tt_content']['types']['media'] = [
                 'items' => [
                     [ "Simple", "simple" ],
                     [ "Slider", "slider" ],
+                    [ "Free Slider", "sliderFree" ],
                     [ "Grid", "grid" ],
                 ]
             ]

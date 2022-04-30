@@ -12,6 +12,9 @@
         <f:case value="slider">
             <f:render section="slider" arguments="{_all}" />
         </f:case>
+        <f:case value="sliderFree">
+            <f:render section="sliderFree" arguments="{_all}" />
+        </f:case>
         <f:case value="grid">
             <f:render section="grid" arguments="{_all}" />
         </f:case>
@@ -54,13 +57,44 @@
 
             <div class="flex flex-row flex-wrap justify-between items-center py-4">
                 <div class="flex-none">
-                    <a href="" class="swiper-control-prev link-button-icon">
+                    <a href="#" class="swiper-control-prev link-button-icon">
                         <i class="fas fa-arrow-left"></i>
                     </a>
                 </div>
                 <div class="swiper-control-pagination flex-none"><p class="m-0">Pagination</p></div>
                 <div class="flex-none">
-                    <a href="" class="swiper-control-next link-button-icon">
+                    <a href="#" class="swiper-control-next link-button-icon">
+                        <i class="far fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </f:if>
+
+</f:section>
+
+<f:section name="sliderFree">
+
+    <f:if condition="{assets}">
+        <div class="swiper-container swiper-type-free">
+            <div class="swiper-wrapper">
+                <f:for each="{assets}" as="reference">
+
+                    <div class="swiper-slide">
+                        <f:render section="asset" arguments="{reference: reference, height: '600'}" />
+                    </div>
+
+                </f:for>
+            </div>
+
+            <div class="flex flex-row flex-wrap justify-between items-center py-4">
+                <div class="flex-none">
+                    <a class="swiper-control-prev link-button-icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                <div class="flex-none">
+                    <a class="swiper-control-next link-button-icon">
                         <i class="far fa-arrow-right"></i>
                     </a>
                 </div>

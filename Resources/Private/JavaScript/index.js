@@ -21,6 +21,15 @@ new SwiperCore('.swiper-container.swiper-type-default', {
     },
 });
 
+new SwiperCore('.swiper-container.swiper-type-free', {
+    slidesPerView: 'auto',
+    freeMode: true,
+    navigation: {
+        nextEl: '.swiper-control-next',
+        prevEl: '.swiper-control-prev',
+    },
+});
+
 
 Alpine.start();
 
