@@ -41,7 +41,7 @@
 <f:section name="slider">
 
     <f:if condition="{assets}">
-        <div class="swiper-container">
+        <div class="swiper-container swiper-type-default">
             <div class="swiper-wrapper">
                 <f:for each="{assets}" as="reference">
 
@@ -52,10 +52,18 @@
                 </f:for>
             </div>
 
-            <div class="static flex flex-row flex-wrap justify-between content-center py-4">
-                <div class="swiper-button-prev flex-none"></div>
-                <div class="swiper-pagination flex-none self-center"><p class="m-0">Pagination</p></div>
-                <div class="swiper-button-next flex-none"></div>
+            <div class="flex flex-row flex-wrap justify-between items-center py-4">
+                <div class="flex-none">
+                    <a href="" class="swiper-control-prev link-button-icon">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+                <div class="swiper-control-pagination flex-none"><p class="m-0">Pagination</p></div>
+                <div class="flex-none">
+                    <a href="" class="swiper-control-next link-button-icon">
+                        <i class="far fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </f:if>

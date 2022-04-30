@@ -4,17 +4,20 @@ import Alpine from "alpinejs";
 // configure Swiper to use modules
 SwiperCore.use([Navigation, Pagination]);
 
-const swiper = new SwiperCore('.swiper-container', {
+new SwiperCore('.swiper-container.swiper-type-default', {
     spaceBetween: 0,
     slidesPerView: 'auto',
 
     pagination: {
-        el: '.swiper-pagination',
-        dynamicBullets: true,
+        el: ".swiper-control-pagination",
+        type: "fraction",
+        renderFraction: function (currentClass, totalClass) {
+            return '<span class="' + currentClass + ' text-accent font-bold"></span>' + ' <span>/</span> ' + '<span class="' + totalClass + '"></span>';
+        },
     },
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-control-next',
+        prevEl: '.swiper-control-prev',
     },
 });
 
