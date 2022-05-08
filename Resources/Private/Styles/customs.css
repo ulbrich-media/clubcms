@@ -40,6 +40,22 @@ p {
     margin-bottom: 1.5rem;
 }
 
+.highlight, .highlight-error, .highlight-warning, .highlight-success {
+    @apply relative border rounded p-3 lg:py-4;
+}
+.highlight {
+    @apply text-accent border-accent bg-accent-10;
+}
+.highlight-success {
+    @apply text-success border-success bg-success-10;
+}
+.highlight-warning {
+    @apply text-warning border-warning bg-warning-10;
+}
+.highlight-error {
+    @apply text-error border-error bg-error-10;
+}
+
 .link-text {
     @apply text-accent font-bold underline;
 }

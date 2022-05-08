@@ -20,6 +20,11 @@ class CssVariableDataProcessor implements DataProcessorInterface
                 $as = $processorConfiguration["as"];
             }
 
+            $colorHex = $site->getConfiguration()["clubcms_color_accent"];
+            if (!$colorHex) {
+                return $processedData;
+            }
+
             $color = new Color(
                 $site->getConfiguration()["clubcms_color_accent"]
             );

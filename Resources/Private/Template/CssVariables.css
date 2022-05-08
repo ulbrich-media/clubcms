@@ -1,3 +1,6 @@
-:root {
+<f:if condition="{variables.colorAccent}">:root {
     --color-accent: {variables.colorAccent.H}, {variables.colorAccent.S * 100}%, {variables.colorAccent.L * 100}%;
-}
+    --color-success: 112, {variables.colorAccent.S * 100}%, {variables.colorAccent.L * 100}%;
+    --color-warning: 34, {variables.colorAccent.S * 100}%, {variables.colorAccent.L * 100}%;
+    --color-error: 0, {variables.colorAccent.S * 100}%, {variables.colorAccent.L * 100}%;
+}</f:if>

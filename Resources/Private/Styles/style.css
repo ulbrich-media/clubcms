@@ -5,7 +5,10 @@
 @import "../Library/FontAwesome/css/all.min.css";
 
 :root {
-    --color-accent: 108, 31%, 48%;
+    --color-accent: 24 , 80% , 45%;
+    --color-success: 112, 80%, 45%;
+    --color-warning: 34, 80%, 45%;
+    --color-error: 0, 80%, 45%;
     --font-body: 'Poppins';
     --font-weight-regular: 400;
     --font-weight-bold: 700;

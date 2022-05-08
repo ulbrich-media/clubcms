@@ -13,11 +13,15 @@ editor:
         classes: "*"
 
   config:
-    contentsCss: ["EXT:clubcms/Resources/Public/style.css?v1"]
+    contentsCss: ["EXT:clubcms/Resources/Public/style.css?v2"]
 
     stylesSet:
       - { name: "Link", element: "a", attributes: { class: 'link-text' } }
       - { name: "Button", element: "a", attributes: { class: 'link-button' } }
+      - { name: "Box (Accent)", element: "p", attributes: { class: 'highlight' } }
+      - { name: "Box (Success)", element: "p", attributes: { class: 'highlight-success' } }
+      - { name: "Box (Warning)", element: "p", attributes: { class: 'highlight-warning' } }
+      - { name: "Box (Error)", element: "p", attributes: { class: 'highlight-error' } }
 
     format_tags: "p;h1;h2;h3;h4"
 
