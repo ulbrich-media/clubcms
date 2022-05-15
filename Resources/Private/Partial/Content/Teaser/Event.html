@@ -1,11 +1,15 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 
-<div class="flex flex-col border-2 border-accent-10 rounded overflow-hidden place-content-between">
+<div class="flex flex-col border-2 border-accent-10 rounded overflow-hidden place-content-between transition-colors"
+     x-data="{ hover: false }" :class="{ 'border-accent': hover }"
+>
     <div class="px-4">
 
         <div class="{f:if(condition: page.media.0, then: 'pt-4', else: 'pt-6')}">
             <h3 class="mb-2">
-                <f:link.page class="block" pageUid="{page.uid}">{page.title}</f:link.page>
+                <a class="block" href="{f:uri.page(pageUid: page.uid)}"
+                             @mouseover="hover = true" @mouseout="hover = false"
+                >{page.title}</a>
             </h3>
         </div>
 
@@ -78,9 +82,11 @@
     </div>
 
     <div class="m-3">
-        <f:link.page class="link-button-icon" pageUid="{page.uid}">
+        <a class="link-button-icon" href="{f:uri.page(pageUid: page.uid)}"
+                     :class="{ 'active': hover }" @mouseover="hover = true" @mouseout="hover = false"
+        >
             <i class="fas fa-arrow-right"></i>
-        </f:link.page>
+        </a>
     </div>
 
 </div>
