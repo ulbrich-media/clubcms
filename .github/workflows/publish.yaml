@@ -33,7 +33,6 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: publicAssets
-          path: Resources/Public
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: Resources/Public
