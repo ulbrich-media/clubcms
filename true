@@ -1,0 +1,55 @@
+# 0.1.0 (2022-05-16)
+
+
+### Bug Fixes
+
+* add github actions batches ([3315174](https://github.com/ulbrich-media/clubcms/commit/331517401a6528570a2e674ae397a16dc254be95))
+* add licensing information to composer file ([458db68](https://github.com/ulbrich-media/clubcms/commit/458db68d784dbb8df78de174df74ece95db20aa0))
+* add new clubcms properties for other pagetypes too ([d2eb1df](https://github.com/ulbrich-media/clubcms/commit/d2eb1df97381f1565cbc0d294f8d28a83f135105))
+* adjust link to clubcms GitHub page ([5a92b32](https://github.com/ulbrich-media/clubcms/commit/5a92b32fb1c08080d59d033e2e40a0817e6e9535))
+* don't purge classes from javascript files ([08b82b5](https://github.com/ulbrich-media/clubcms/commit/08b82b51036ba9c295bffece68893005bf827381))
+* release v0.1.1 ([b295b54](https://github.com/ulbrich-media/clubcms/commit/b295b545e6d480b8cab9547ab38061e1f12c62a2))
+* release v0.1.2 ([33a04eb](https://github.com/ulbrich-media/clubcms/commit/33a04ebed6d982449da5332057ab16e623c021da))
+* release v0.2 ([1c4c4da](https://github.com/ulbrich-media/clubcms/commit/1c4c4dabcf537f9309379709e5f03194f336ed78))
+* release v0.2.0 ([8023be3](https://github.com/ulbrich-media/clubcms/commit/8023be377386ae892accfb42c53c51ac0ed9df21))
+* remove unused layout option from SiteConfiguration ([330ab48](https://github.com/ulbrich-media/clubcms/commit/330ab48523e06586749afc25c55b2de61bed5459))
+* resolve mobile navigation animating out on every page load ([bea2ac5](https://github.com/ulbrich-media/clubcms/commit/bea2ac595bfe16b02206716e6df47bd26a0eed34))
+* resolve scrolling issue with tablet navigation ([fcbc4c4](https://github.com/ulbrich-media/clubcms/commit/fcbc4c46e38f9c64ad6d049caa0f34f669f2ab63))
+* updated node dependencies ([c87220f](https://github.com/ulbrich-media/clubcms/commit/c87220ffef8c8bf1829ca3148a93ed47baeb9ffb))
+
+
+### Features
+
+* **actions:** add build process with github actions ([f604b60](https://github.com/ulbrich-media/clubcms/commit/f604b60ed64df21ee16cbe0eefbc4a036b28182d))
+* **actions:** add changelog generator to release flow ([f1e95af](https://github.com/ulbrich-media/clubcms/commit/f1e95af4c4c3208316e6ac63c750b17f5df90059))
+* **actions:** add changelog generator to release flow ([2ae3a6d](https://github.com/ulbrich-media/clubcms/commit/2ae3a6d208d47c081576d7036f314818916e65f4))
+* **actions:** add workflow to publish new release to TER ([f997c05](https://github.com/ulbrich-media/clubcms/commit/f997c05069338712c2333bf06739c8494b3ef73e))
+* **actions:** added codeql analysis ([2601f9e](https://github.com/ulbrich-media/clubcms/commit/2601f9e5150c8acbf0e10f90889b46f8cc91bd74))
+* **actions:** added debug for artifact download ([9bf4734](https://github.com/ulbrich-media/clubcms/commit/9bf4734dadc9a897a372b26ee4a04ac458e920c2))
+* **actions:** adjust new artifact generation ([42d5982](https://github.com/ulbrich-media/clubcms/commit/42d5982bf9be93b81e8a04d4ed1b309fb95e020a))
+* **actions:** adjust trigger branch ([49df03b](https://github.com/ulbrich-media/clubcms/commit/49df03bf2e274167410308c14a4b5b2e2fcee3a0))
+* **actions:** commit public assets after build ([a9fc1e4](https://github.com/ulbrich-media/clubcms/commit/a9fc1e4726cd9d1e70abc8fd02383611856db274))
+* **actions:** commit public assets after build ([fc5e84c](https://github.com/ulbrich-media/clubcms/commit/fc5e84c922df3666e3d2625eeeea30aec1ed473b))
+* **actions:** debugging artifact download ([8015403](https://github.com/ulbrich-media/clubcms/commit/80154039e5c934cbfbf498b8c8e8b39ee7e86af3))
+* **actions:** debugging artifact download ([a1d345a](https://github.com/ulbrich-media/clubcms/commit/a1d345af1a1bdb1bc43df7790aaeced466022e50))
+* **actions:** fixed path to input ([bce57db](https://github.com/ulbrich-media/clubcms/commit/bce57db657648a7e32e34b1325415684dbccaff5))
+* **actions:** only commit assets when there are changes ([dbd0ca2](https://github.com/ulbrich-media/clubcms/commit/dbd0ca29f017fc073afd0a2265d56918a464414f))
+* **actions:** provide artifact of production ready extension as .zip and add it to release ([8130824](https://github.com/ulbrich-media/clubcms/commit/8130824c786389ed86b869ec565015b9ffd43891))
+* **actions:** remove feature branch from triggers ([56f70b3](https://github.com/ulbrich-media/clubcms/commit/56f70b34f704adf2b778ac461aeb10e1b5512a8e))
+* **actions:** remove public folder from gitignore for debugging artifact download ([b31fec7](https://github.com/ulbrich-media/clubcms/commit/b31fec79cde91fb301db06f4f6a064936f894144))
+* **actions:** removed unused release asset upload ([ce2cfa4](https://github.com/ulbrich-media/clubcms/commit/ce2cfa43fdd5b0aee529c47eb262c11ea3caa185))
+* add a teaser field to pages for page preview ([e82dcfe](https://github.com/ulbrich-media/clubcms/commit/e82dcfeb92ff7bb177921b8b3158ca61fe55c09b))
+* add webpack based build process for creating all public assets like styling, javascript and fonts ([4f335fb](https://github.com/ulbrich-media/clubcms/commit/4f335fbbacc2c7cb4617b9e3ccc37133e4a9f5c6))
+* added new colors for success, warning and error; added highlight paragraph styling ([b67da3d](https://github.com/ulbrich-media/clubcms/commit/b67da3dde8928cafa54e2e23b5ad2f93b0b3439b))
+* added new media layout "free slider" ([e3cf13b](https://github.com/ulbrich-media/clubcms/commit/e3cf13bd7ed2a228e45c3da2b4429b617fdb0378))
+* added proper hover styling to document list teasers ([8da9164](https://github.com/ulbrich-media/clubcms/commit/8da91643447aa3eb6aab2a84019d8254e4d1ad1c))
+* adjusted default slider styling ([1ad2175](https://github.com/ulbrich-media/clubcms/commit/1ad2175f051b7c0163d02f1747e381b8cce9bc0e))
+* **event:** add a document list content element to dynamically show a filtered list of different pages ([03dd169](https://github.com/ulbrich-media/clubcms/commit/03dd1697bffaacd827c576cd707c062582cab120))
+* **event:** add a new page type with its own properties of type event ([0fe20e0](https://github.com/ulbrich-media/clubcms/commit/0fe20e02c9abb810a4276abb91bda8da4efaa54f))
+* first commit containing some content elements, styling and site configuration ([e747abe](https://github.com/ulbrich-media/clubcms/commit/e747abe76404afb9747fcdc3cdfd0a72749ea9b0))
+* introduce Alpine.js, replacing the plain javascript of accordion element ([da957aa](https://github.com/ulbrich-media/clubcms/commit/da957aad0cddbd1681da4d2cdf3acef6f0e8c9ac))
+* provide Poppins font files locally in favour of using google fonts ([cc306c2](https://github.com/ulbrich-media/clubcms/commit/cc306c24ff08977dd3c3a4b80290fb6710df376c))
+* reorganize page properties ([1e05d1c](https://github.com/ulbrich-media/clubcms/commit/1e05d1c8b00455e11b1766fb3d8507cfec054470))
+
+
+
