@@ -19,10 +19,12 @@ jobs:
           node-version: '17.x'
       - run: yarn --frozen-lockfile
       - run: yarn build
+      - run: rm -rf .git .github node_modules tailwind.config.js webpack.config.js yarn.lock
+      - run: zip -r clubcms.zip .
       - uses: actions/upload-artifact@v3
         with:
-          name: fullExtension
-          path: ./
+          name: clubcms
+          path: ./clubcms.zip
 
   release:
     name: 'Release'
@@ -31,11 +33,11 @@ jobs:
     steps:
       - uses: actions/download-artifact@v3
         with:
-          name: fullExtension
+          name: clubcms
           path: ./
       - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: Resources/Public
+        run: ls -lah
+        working-directory: ./
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -47,3 +49,13 @@ jobs:
           draft: false
           prerelease: true
           body_path: ''
+      - name: Upload Release Asset
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./clubcms.zip
+          asset_name: clubcms.zip
+          asset_content_type: application/zip
