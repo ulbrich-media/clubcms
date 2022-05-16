@@ -40,7 +40,7 @@ jobs:
           output-file: CHANGELOG.md
           skip-version-file: true
           skip-git-pull: true
-          release-count: 0
+          preset: 'conventionalcommits'
           fallback-version: ${{ github.event.inputs.version }}
           tag-prefix: ''
       - uses: actions/download-artifact@v3
