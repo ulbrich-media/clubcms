@@ -21,18 +21,18 @@ jobs:
       - run: yarn build
       - uses: actions/upload-artifact@v3
         with:
-          name: publicAssets
-          path: Resources/Public
+          name: fullExtension
+          path: ./
 
   release:
     name: 'Release'
     needs: build
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/download-artifact@v3
         with:
-          name: publicAssets
+          name: fullExtension
+          path: ./
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: Resources/Public
