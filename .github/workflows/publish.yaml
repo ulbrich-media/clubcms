@@ -39,6 +39,8 @@ jobs:
           github-token: ${{ secrets.github_token }}
           output-file: CHANGELOG.md
           skip-version-file: true
+          skip-git-pull: true
+          skip-commit: true
           release-count: 0
       - uses: actions/download-artifact@v3
       with:
