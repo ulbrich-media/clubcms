@@ -19,7 +19,7 @@ jobs:
           node-version: '17.x'
       - run: yarn --frozen-lockfile
       - run: yarn build
-      - run: rm -rf .git .github node_modules tailwind.config.js webpack.config.js yarn.lock
+      - run: rm -rf .git .github node_modules
       - run: zip -r clubcms.zip .
       - uses: actions/upload-artifact@v3
         with:
@@ -35,9 +35,6 @@ jobs:
         with:
           name: clubcms
           path: ./
-      - name: Display structure of downloaded files
-        run: ls -lah
-        working-directory: ./
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1

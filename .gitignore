@@ -1,5 +1,6 @@
 .idea/
 /temp/
+/Resources/Public
 
 node_modules
 yarn-error.log
