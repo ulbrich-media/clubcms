@@ -1,9 +1,7 @@
-## 0.2.1 (2022-05-16)
+### 0.2.1 (2022-05-16)
 
 
 ### Features
 
-* **actions:** fix changelog generator ([96c4160](https://github.com/ulbrich-media/clubcms/commit/96c416090b8a0317b50554a04f1faf786d5428f9))
-
-
+* **actions:** fix workflow ([8cb46e5](https://github.com/ulbrich-media/clubcms/commit/8cb46e55cb5bd0c7ff77071d8ec48072669cd8ad))
 
