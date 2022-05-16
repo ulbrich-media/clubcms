@@ -40,8 +40,10 @@ jobs:
           output-file: CHANGELOG.md
           skip-version-file: true
           skip-git-pull: true
-          skip-commit: true
+          git-push: false
           release-count: 0
+          fallback-version: ${{ github.event.inputs.version }}
+          tag-prefix: ''
       - uses: actions/download-artifact@v3
         with:
           name: clubcms
