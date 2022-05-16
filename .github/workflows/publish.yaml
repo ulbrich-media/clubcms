@@ -40,7 +40,6 @@ jobs:
           output-file: CHANGELOG.md
           skip-version-file: true
           skip-git-pull: true
-          git-push: false
           release-count: 0
           fallback-version: ${{ github.event.inputs.version }}
           tag-prefix: ''
@@ -55,7 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.event.inputs.version }}
-          release_name: Release v${{ github.event.inputs.version }}
+          release_name: v${{ github.event.inputs.version }}
           body: ${{ steps.create_changelog.outputs.clean_changelog }}
           draft: false
           prerelease: true
