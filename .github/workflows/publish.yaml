@@ -32,17 +32,18 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
-        with:
-          name: clubcms
-          path: ./
       - name: Conventional Changelog Action
         id: create_changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.github_token }}
-          output-file: true
+          output-file: CHANGELOG.md
           skip-version-file: true
+          release-count: 0
+      - uses: actions/download-artifact@v3
+      with:
+        name: clubcms
+        path: ./
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
