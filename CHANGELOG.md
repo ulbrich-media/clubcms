@@ -3,5 +3,5 @@
 
 ### Features
 
-* **actions:** debug workflow ([1caebf5](https://github.com/ulbrich-media/clubcms/commit/1caebf52dd202959307efc6dca6518c7cad85f00))
+* **actions:** fix workflow ([2171b53](https://github.com/ulbrich-media/clubcms/commit/2171b534ca8b7e699b1a9aacc01394ed8cad3729))
 
