@@ -40,7 +40,7 @@ jobs:
 
   release:
     name: 'Release'
-    needs: build
+    needs: [audit, build]
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -94,7 +94,7 @@ jobs:
         with:
           name: clubcms
           path: ./
-      - run: unzip clubcms.zip -d ..
+      - run: unzip clubcms.zip -d .
       - run: rm clubcms.zip
       - run: ls -lah
       - run: cat ext_emconf.php
