@@ -86,7 +86,7 @@ jobs:
 
       - name: Check tag
         run: |
-          if ! [[ ${{ github.ref }} =~ ^refs/tags/[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}$ ]]; then
+          if ! [[ ${{ steps.get-version.outputs.version }} =~ ^refs/tags/[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}$ ]]; then
             exit 1
           fi
       - name: Get version
