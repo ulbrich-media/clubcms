@@ -1,6 +1,6 @@
 {
   "name": "ulbrich-media/clubcms",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "typo3-cms-extension",
   "description": "ClubCMS website package",
   "license": "GPL-3.0",
