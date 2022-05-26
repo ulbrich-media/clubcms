@@ -22,7 +22,6 @@ jobs:
 
   build:
     name: 'Build'
-    needs: audit
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -45,7 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Conventional Changelog Action
-        id: create_changelog
+        id: create-changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.github_token }}
@@ -60,24 +59,22 @@ jobs:
           name: clubcms
           path: ./
       - name: Create Release
-        id: create_release
+        id: create-release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.event.inputs.version }}
           release_name: v${{ github.event.inputs.version }}
-          body: ${{ steps.create_changelog.outputs.clean_changelog }}
+          body: ${{ steps.create-changelog.outputs.clean_changelog }}
           draft: false
           prerelease: true
-      - run: echo "{steps.create_release.outputs.html_url}" >> $env:RELEASE_URL
       - name: Upload Release Asset
-        id: upload_release_asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
           asset_path: ./clubcms.zip
           asset_name: clubcms.zip
           asset_content_type: application/zip
@@ -96,12 +93,10 @@ jobs:
           path: ./
       - run: unzip clubcms.zip -d .
       - run: rm clubcms.zip
-      - run: ls -lah
-      - run: cat ext_emconf.php
 
       - name: Get comment
         id: get-comment
-        run: echo ::set-output name=comment::Automated release of version ${{ github.event.inputs.version }}. See changelog on GitHub - ${{ env.RELEASE_URL }}
+        run: echo ::set-output name=comment::Automated release of version ${{ github.event.inputs.version }}. For more information see the changelog on GitHub - https://github.com/ulbrich-media/clubcms/releases
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
